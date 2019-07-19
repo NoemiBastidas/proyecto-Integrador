@@ -1,0 +1,34 @@
+<h1 mat-dialog-title>Ingresa un nuevo producto</h1>
+<div mat-dialog-content>
+  <form [formGroup]='formProducto'>
+    <mat-form-field>
+        <input matInput type="text" formControlName="nombre" name="nombre" placeholder="Nombre del Pastel"
+        [(ngModel)]="nombre">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <textarea matInput type="text" formControlName="descripcion" name="descripcion" placeholder="Descripción"
+        [(ngModel)]="descripcion"></textarea>
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput type="text" formControlName="precio" name="precio" placeholder="Precio"
+        [(ngModel)]="precio">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput type="text" formControlName="imagen" name="imagen" placeholder="Imagen"
+        [(ngModel)]="imagen">
+    </mat-form-field>
+    <br>
+    <mat-form-field>
+        <input matInput type="text" formControlName="sabor" name="sabor" placeholder="Sabor"
+        [(ngModel)]="sabor">
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-button type="button" (click)="clickSalir()">Salir</button>
+  <button mat-button type="submit" (click)="agregarProducto(Pasteles)">Añadir</button>
+  <button mat-button type="reset">Borrar todo</button>
+</div>
