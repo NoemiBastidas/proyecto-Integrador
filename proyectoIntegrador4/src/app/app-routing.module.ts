@@ -15,7 +15,8 @@ import { CarritoComponent } from './components/carrito/carrito.component';
 
 const routes: Routes = [
   // { path:'', redirectTo:'main-navbar', pathMatch:'full' },
-  { path: '', redirectTo: 'inicio', pathMatch: 'full' },
+  { path: '', component: InicioComponent , pathMatch: 'full' },
+  // { path: '**', redirectTo:'/', pathMatch:'full' },
   { path: 'inicio', component: InicioComponent },
   { path: 'main-navbar', component: MainNavbarComponent },
   { path: 'pedidos', component: PedidosComponent },

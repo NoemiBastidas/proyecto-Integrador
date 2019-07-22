@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material';
+import { ModalSesionComponent } from '../../modal-sesion/modal-sesion.component';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Observable, from } from 'rxjs';
+import { map } from 'rxjs/operators';
+
+
 
 @Component({
   selector: 'app-navbar',
@@ -7,7 +14,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  isHandset$: Observable<boolean> = this.breakpointObserver.observe(Breakpoints.Handset)
+    .pipe(
+      map(result => result.matches)
+    );
+
+  constructor(
+    private breakpointObserver: BreakpointObserver,
+    private dialogo: MatDialog
+  ) { }
+
+  abrirModal():void{
+    const dialogRef = this.dialogo.open(ModalSesionComponent, {});
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+    });
+  }
 
   ngOnInit() {
   }

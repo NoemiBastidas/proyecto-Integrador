@@ -1,14 +1,25 @@
 <mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #drawer class="sidenav" fixedInViewport
+  <mat-sidenav #drawer class="sidenav" fixedInViewport="true"
       [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
       [mode]="(isHandset$ | async) ? 'over' : 'side'"
       [opened]="(isHandset$ | async) === false">
     <mat-toolbar>Menú</mat-toolbar>
     <mat-nav-list>
-      <div class="container">
-        <button mat-button color="primary" (click)="abrirModal();">Añadir Producto</button>
-        <button mat-button color="primary">Ver Pedidos</button>
-      </div>
+      <!-- <ul>
+        <li>
+          <a mat-list-item (click)="abrirModal();">Añadir Producto</a>
+        </li>
+        <li>
+          <a mat-list-item [routerLink]="['/pedidos']">Ver Pedidos</a>
+          <a mat-list-item href="/pedidos">Ver Pedidos</a>
+        </li>
+      </ul> -->
+      <a mat-list-item (click)="abrirModal();"><i class="material-icons">
+          add_shopping_cart</i> Añadir Producto</a>
+      <a mat-list-item routerLink="/pedidos"><i class="material-icons">
+          list_alt</i>Ver Pedidos</a>
+      <a mat-list-item routerLink="/inicio"><i class="material-icons">
+          person</i>Cerrar Sesión</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
@@ -22,10 +33,12 @@
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <div class="container">
-        <span>Web-Bakery-Administración</span>
+        <span>Web-Cake Shop-Administración</span>
       </div>
     </mat-toolbar>
-    <app-pedidos></app-pedidos>
+    <router-outlet></router-outlet>
+    <!-- <ng-content></ng-content> -->
+    <!-- <app-pedidos></app-pedidos> -->
   </mat-sidenav-content>
 </mat-sidenav-container>
 

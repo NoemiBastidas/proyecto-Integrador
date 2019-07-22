@@ -13,14 +13,17 @@ export class SesionDialogComponent implements OnInit {
 
   formProducto : FormGroup;
 
+  pasteles = new Pasteles();
+  objPasteles : Pasteles;
+
   constructor(
     private dialogRef : MatDialogRef<SesionDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public mensaje: string,
     private servicioService : ServicioService,
     private fb : FormBuilder) { }
 
-  ngOnInit(): void {
-    this.agregarProducto(Pasteles);
+  ngOnInit() {
+    // this.agregarProducto(Pasteles);
     this.crearFormulario();
   }
 
@@ -39,15 +42,25 @@ export class SesionDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
+  // onSubmit(){
+  //   this.agregarProducto(this.enviarDatos);
+  // }
+
   //AGREGAR PRODUCTO
-  agregarProducto(Pasteles){
-    this.servicioService.insertProductos(Pasteles).subscribe(data => {
-      // JSON.stringify(data);
-      console.log(data);
+  agregarProducto(body : Pasteles){
+    this.servicioService.insertProductos(body).subscribe(data => {
+      // console.log(data);
+      this.objPasteles = data;
     },
     error =>{
-      console.log(JSON.stringify(error))
+      console.log(error)
     });
   }
+
+  // get nombre(){ return this.formProducto.get('nombre')};
+  // get descripcion(){ return this.formProducto.get('descripcion')};
+  // get precio(){ return this.formProducto.get('precio')};
+  // get imagen(){ return this.formProducto.get('imagen')};
+  // get sabor(){ return this.formProducto.get('sabor')};
 
 }

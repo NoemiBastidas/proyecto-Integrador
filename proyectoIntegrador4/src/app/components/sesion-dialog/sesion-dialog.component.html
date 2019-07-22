@@ -1,34 +1,43 @@
-<h1 mat-dialog-title>Ingresa un nuevo producto</h1>
+<div class="container">
+    <h1 mat-dialog-title>Nuevo Producto</h1>    
+</div>
 <div mat-dialog-content>
-  <form [formGroup]='formProducto'>
-    <mat-form-field>
-        <input matInput type="text" formControlName="nombre" name="nombre" placeholder="Nombre del Pastel"
-        [(ngModel)]="nombre">
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-        <textarea matInput type="text" formControlName="descripcion" name="descripcion" placeholder="Descripción"
-        [(ngModel)]="descripcion"></textarea>
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-        <input matInput type="text" formControlName="precio" name="precio" placeholder="Precio"
-        [(ngModel)]="precio">
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-        <input matInput type="text" formControlName="imagen" name="imagen" placeholder="Imagen"
-        [(ngModel)]="imagen">
-    </mat-form-field>
-    <br>
-    <mat-form-field>
-        <input matInput type="text" formControlName="sabor" name="sabor" placeholder="Sabor"
-        [(ngModel)]="sabor">
-    </mat-form-field>
+  <form #envioForm="ngForm" role="form" (ngSubmit)="agregarProducto(Pasteles)">
+    <div class="container">
+        <mat-form-field>
+            <input matInput type="text" placeholder="Nombre del Pastel"
+            [(ngModel)]="pasteles.nombre" name="input1" #nombre>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <textarea matInput type="text" placeholder="Descripción"
+            [(ngModel)]="pasteles.descripcion" name="text1" #descripcion></textarea>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput type="text" placeholder="Precio"
+            [(ngModel)]="pasteles.precio" name="input2" #precio>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput type="text" placeholder="Imagen"
+            [(ngModel)]="pasteles.imagen" name="input3" #imagen>
+        </mat-form-field>
+        <br>
+        <mat-form-field>
+            <input matInput type="text" placeholder="Sabor"
+            [(ngModel)]="pasteles.sabor" name="input4" #sabor>
+        </mat-form-field> 
+    </div>
   </form>
-</div>
 <div mat-dialog-actions>
-  <button mat-button type="button" (click)="clickSalir()">Salir</button>
-  <button mat-button type="submit" (click)="agregarProducto(Pasteles)">Añadir</button>
-  <button mat-button type="reset">Borrar todo</button>
+  <button mat-button type="button" (click)="clickSalir();"><i class="material-icons">
+    arrow_back</i>Atrás</button>
+  <button mat-button type="submit" (click)="agregarProducto();"><i class="material-icons">
+    add_circle</i>Añadir</button>
+  <button mat-button (click)="formProducto.reset();"><i class="material-icons">
+    delete_outline</i>Borrar todo</button>
 </div>
+
+<!-- [formGroup]='formProducto' -->
+<!-- (click)="agregarProducto();" -->

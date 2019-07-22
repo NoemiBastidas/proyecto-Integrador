@@ -22,6 +22,7 @@ import { Categoria1Component } from './components/categoria1/categoria1.componen
 import { Categoria2Component } from './components/categoria2/categoria2.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { ModalSesionComponent } from './modal-sesion/modal-sesion.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +37,8 @@ import { CarritoComponent } from './components/carrito/carrito.component';
     Categoria1Component,
     Categoria2Component,
     InicioComponent,
-    CarritoComponent
+    CarritoComponent,
+    ModalSesionComponent
   ],
   imports: [
     BrowserModule,
@@ -57,7 +59,7 @@ import { CarritoComponent } from './components/carrito/carrito.component';
     MatButtonToggleModule,
     MatInputModule
   ],
-  entryComponents: [SesionDialogComponent],
+  entryComponents: [SesionDialogComponent, ModalSesionComponent],
   providers: [],
   bootstrap: [AppComponent]
 })
