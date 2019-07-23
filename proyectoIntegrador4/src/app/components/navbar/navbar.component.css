@@ -21,7 +21,7 @@
 	height: 45px;
 	border: 1px solid;
 	position: relative;
-  width: 100%;
+  	width: 100%;
 }
 
 /*cambios de color en el dropdown*/
@@ -35,5 +35,7 @@
 	padding: 0px;
     width: 200px;
     height: 28px;
-    color: white;
+	color: white;
+	background-color: #827C7C;
+	border: #DDD9D9;
 }

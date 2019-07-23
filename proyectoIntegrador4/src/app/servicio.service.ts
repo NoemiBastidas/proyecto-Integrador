@@ -23,6 +23,7 @@ export class ServicioService {
   }
 
   insertProductos(pasteles : Pasteles): Observable<PastelesGet> {
+    console.log(pasteles);
     return this.http.post<PastelesGet>('http://localhost:3000/agregarProducto', pasteles);
   }
 }

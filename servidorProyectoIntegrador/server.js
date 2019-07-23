@@ -44,12 +44,12 @@ app.get('/getPedidos', function(req, res) {
 app.post('/agregarProducto', function(req, res) {
     // let tabla = req.body.tabla
     // let datos = JSON.stringify(req.body.datos)
-    knex('pasteles').insert({
-        nombre : req.body.nombre,
-        descripcion : req.body.descripcion,
-        precio : req.body.precio,
-        imagen: req.body.imagen,
-        sabor: req.body.sabor
+    return knex('pasteles').insert({
+        "nombre" : req.body.nombre,
+        "descripcion" : req.body.descripcion,
+        "precio" : req.body.precio,
+        "imagen" : req.body.imagen,
+        "sabor" : req.body.sabor
     })
     .then(resultado => {
         return res.status(200).json({

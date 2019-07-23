@@ -47,8 +47,9 @@ export class SesionDialogComponent implements OnInit {
   // }
 
   //AGREGAR PRODUCTO
-  agregarProducto(body : Pasteles){
-    this.servicioService.insertProductos(body).subscribe(data => {
+  agregarProducto(){
+    alert(this.pasteles);
+    this.servicioService.insertProductos(this.pasteles).subscribe(data => {
       // console.log(data);
       this.objPasteles = data;
     },
