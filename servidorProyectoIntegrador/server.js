@@ -40,6 +40,27 @@ app.get('/getPedidos', function(req, res) {
     })    
 })
 
+//GET PASTELES
+app.get('/getPasteles', function(req, res) {
+    // let tabla = req.body.tabla
+    // let campo = req.body.datos
+    knex.select().from('pasteles')
+    .then(resultado => {
+        return res.status(200).json({
+            ok: true,
+            datos: resultado,
+            mensaje: `Existen ${resultado.length} registros en la consulta`
+        })
+    })
+    .catch((error) => {
+        return res.status(500).json({
+            ok: false,
+            datos: null,
+            mensaje: `Error del servidor: ${error}`
+        })
+    })    
+})
+
 //INSERT PRODUCTO
 app.post('/agregarProducto', function(req, res) {
     // let tabla = req.body.tabla
@@ -67,6 +88,81 @@ app.post('/agregarProducto', function(req, res) {
     })    
 })
 
+//INSERT USUARIO
+app.post('/agregarUsuario', function(req, res) {
+    // let tabla = req.body.tabla
+    // let datos = JSON.stringify(req.body.datos)
+    return knex('usuarioLogin').insert({
+        "usuario" : req.body.usuario,
+        "password" : req.body.password
+    })
+    .then(resultado => {
+        return res.status(200).json({
+            ok: true,
+            datos: resultado,
+            mensaje: `Existen ${resultado.length} registros en la consulta`
+        })
+    })
+    .catch((error) => {
+        return res.status(500).json({
+            ok: false,
+            datos: null,
+            mensaje: `Error del servidor: ${error}`
+        })
+    })    
+})
+
+//INSERT PEDIDO
+app.post('/agregarPedido', function(req, res) {
+    // let tabla = req.body.tabla
+    // let datos = JSON.stringify(req.body.datos)
+    return knex('pedidos').insert({
+        "nombre" : req.body.nombre,
+        "apellido" : req.body.apellido,
+        "cedula": req.body.cedula,
+        "telefono": req.body.telefono
+    })
+    .then(resultado => {
+        return res.status(200).json({
+            ok: true,
+            datos: resultado,
+            mensaje: `Existen ${resultado.length} registros en la consulta`
+        })
+    })
+    .catch((error) => {
+        return res.status(500).json({
+            ok: false,
+            datos: null,
+            mensaje: `Error del servidor: ${error}`
+        })
+    })    
+})
+
+//INSERT ADMINISTRADOR
+app.post('/agregarAdmin', function(req, res) {
+    // let tabla = req.body.tabla
+    // let datos = JSON.stringify(req.body.datos)
+    return knex('administracion').insert({
+        "nombre" : req.body.nombre,
+        "apellido" : req.body.apellido,
+        "cargo": req.body.cargo,
+        "password": req.body.password
+    })
+    .then(resultado => {
+        return res.status(200).json({
+            ok: true,
+            datos: resultado,
+            mensaje: `Existen ${resultado.length} registros en la consulta`
+        })
+    })
+    .catch((error) => {
+        return res.status(500).json({
+            ok: false,
+            datos: null,
+            mensaje: `Error del servidor: ${error}`
+        })
+    })    
+})
 
 //UPDATE
 app.put('/actualizar', function(req, res) {
@@ -90,10 +186,10 @@ app.put('/actualizar', function(req, res) {
     })    
 })
 
-//DELETE
+//DELETE PEDIDOS
 app.delete('/eliminar/:id', function(req, res) {
-    let tabla = req.body.tabla
-    knex(tabla).where("id", req.params.id).del()
+    // let tabla = req.body.tabla
+    knex('pedidos').where({"id": req.params.id}).del()
     .then(resultado => {
         return res.status(200).json({
             ok: true,

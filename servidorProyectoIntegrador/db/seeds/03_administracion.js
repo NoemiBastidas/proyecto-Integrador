@@ -5,11 +5,15 @@ exports.seed = function(knex, Promise) {
     .then(function () {
       // Inserts seed entries
       return knex('administracion').insert([
-        { contraseña_antigua: '12345', 
-          contraseña_nueva: 'admin01'
+        { nombre: 'Oscar', 
+          apellido: 'Salvador',
+          cargo: 'gerente',
+          password: '12345'
         },
-        { contraseña_antigua: 'admin01', 
-          contraseña_nueva: 'adminPas'
+        { nombre: 'Noemi', 
+          apellido: 'Bastidas',
+          cargo: 'gerenta',
+          password: '54321'
         }
       ]);
     });
