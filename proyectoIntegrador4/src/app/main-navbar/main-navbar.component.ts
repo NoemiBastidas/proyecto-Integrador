@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { SesionDialogComponent } from '../components/sesion-dialog/sesion-dialog.component';
+import { ModalAdminComponent } from '../components/modal-admin/modal-admin.component';
 
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable, from } from 'rxjs';
@@ -23,6 +24,13 @@ export class MainNavbarComponent {
 
   abrirModal():void{
     const dialogRef = this.dialogo.open(SesionDialogComponent, {});
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+    });
+  }
+
+  abrirModalAdmin():void{
+    const dialogRef = this.dialogo.open(ModalAdminComponent, {});
     dialogRef.afterClosed().subscribe(res => {
       console.log(res);
     });

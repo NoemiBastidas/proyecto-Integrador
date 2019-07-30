@@ -10,6 +10,8 @@ import { Categoria1Component } from './components/categoria1/categoria1.componen
 import { Categoria2Component } from './components/categoria2/categoria2.component';
 import { InicioComponent } from './components/inicio/inicio.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
+import { RegistroComponent } from './registro/registro.component';
+import { HomeComponent } from './components/home/home.component';
 
 
 
@@ -22,9 +24,11 @@ const routes: Routes = [
   { path: 'pedidos', component: PedidosComponent },
   { path: 'navbar', component: NavbarComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'home', component: HomeComponent },
   { path: 'categoria1', component: Categoria1Component },
   { path: 'categoria2', component: Categoria2Component },
   { path: 'carrito', component: CarritoComponent },
+  { path: 'registro', component: RegistroComponent }
 ];
 
 @NgModule({

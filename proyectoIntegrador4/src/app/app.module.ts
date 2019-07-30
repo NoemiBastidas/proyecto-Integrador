@@ -23,6 +23,10 @@ import { Categoria2Component } from './components/categoria2/categoria2.componen
 import { InicioComponent } from './components/inicio/inicio.component';
 import { CarritoComponent } from './components/carrito/carrito.component';
 import { ModalSesionComponent } from './modal-sesion/modal-sesion.component';
+import { RegistroComponent } from './registro/registro.component';
+import { HomeComponent } from './components/home/home.component';
+import { ModalPedidoComponent } from './components/modal-pedido/modal-pedido.component';
+import { ModalAdminComponent } from './components/modal-admin/modal-admin.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +42,11 @@ import { ModalSesionComponent } from './modal-sesion/modal-sesion.component';
     Categoria2Component,
     InicioComponent,
     CarritoComponent,
-    ModalSesionComponent
+    ModalSesionComponent,
+    RegistroComponent,
+    HomeComponent,
+    ModalPedidoComponent,
+    ModalAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +67,7 @@ import { ModalSesionComponent } from './modal-sesion/modal-sesion.component';
     MatButtonToggleModule,
     MatInputModule
   ],
-  entryComponents: [SesionDialogComponent, ModalSesionComponent],
+  entryComponents: [SesionDialogComponent, ModalSesionComponent, ModalPedidoComponent, ModalAdminComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

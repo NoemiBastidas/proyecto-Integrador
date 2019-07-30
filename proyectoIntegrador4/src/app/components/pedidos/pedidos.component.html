@@ -16,7 +16,7 @@
                 <td>{{ pedido.apellido }}</td>
                 <td>{{ pedido.cedula }}</td>
                 <td>{{ pedido.telefono }}</td>
-                <button mat-icon-button><td><i class="material-icons">delete</i></td></button>
+                <button mat-icon-button (click)="borrarPedido(id)"><td><i class="material-icons">delete</i></td></button>
             </tr>
             </tbody>
     </table>
