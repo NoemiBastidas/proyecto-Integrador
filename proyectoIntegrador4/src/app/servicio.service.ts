@@ -60,4 +60,14 @@ export class ServicioService {
     console.log(admin);
     return this.http.post<AdministracionGet>('http://localhost:3000/agregarAdmin', admin);
   }
+
+  //VERIFICAR ADMIN
+  verificacionAdmin(admin : Administracion): Observable<any>{
+    return this.http.post<AdministracionGet>('http://localhost:3000/logAdmin', admin);
+  }
+
+  //VERIFICACION LOGIN
+  envioVerificacion(login : Login): Observable<any>{
+    return this.http.post<LoginGet>('http://localhost:3000/login', login);
+  }
 }

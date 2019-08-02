@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material';
 import { ModalSesionComponent } from '../../modal-sesion/modal-sesion.component';
+import { ModalInicioAdminComponent } from '../modal-inicio-admin/modal-inicio-admin.component';
+
 import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable, from } from 'rxjs';
 import { map } from 'rxjs/operators';
@@ -26,6 +28,13 @@ export class NavbarComponent implements OnInit {
 
   abrirModal():void{
     const dialogRef = this.dialogo.open(ModalSesionComponent, {});
+    dialogRef.afterClosed().subscribe(res => {
+      console.log(res);
+    });
+  }
+
+  abrirModalInicioAdmin():void{
+    const dialogRef = this.dialogo.open(ModalInicioAdminComponent, {});
     dialogRef.afterClosed().subscribe(res => {
       console.log(res);
     });

@@ -27,6 +27,7 @@ import { RegistroComponent } from './registro/registro.component';
 import { HomeComponent } from './components/home/home.component';
 import { ModalPedidoComponent } from './components/modal-pedido/modal-pedido.component';
 import { ModalAdminComponent } from './components/modal-admin/modal-admin.component';
+import { ModalInicioAdminComponent } from './components/modal-inicio-admin/modal-inicio-admin.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { ModalAdminComponent } from './components/modal-admin/modal-admin.compon
     RegistroComponent,
     HomeComponent,
     ModalPedidoComponent,
-    ModalAdminComponent
+    ModalAdminComponent,
+    ModalInicioAdminComponent
   ],
   imports: [
     BrowserModule,
@@ -67,7 +69,8 @@ import { ModalAdminComponent } from './components/modal-admin/modal-admin.compon
     MatButtonToggleModule,
     MatInputModule
   ],
-  entryComponents: [SesionDialogComponent, ModalSesionComponent, ModalPedidoComponent, ModalAdminComponent],
+  entryComponents: [SesionDialogComponent, ModalSesionComponent, ModalPedidoComponent, ModalAdminComponent,
+    ModalInicioAdminComponent],
   providers: [],
   bootstrap: [AppComponent]
 })

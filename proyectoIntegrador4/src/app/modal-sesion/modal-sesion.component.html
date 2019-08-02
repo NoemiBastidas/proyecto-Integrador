@@ -2,14 +2,16 @@
     <h1 mat-dialog-title>Iniciar Sesión</h1>    
 </div>
 <div mat-dialog-content>
-    <form action="">
+    <form (ngSubmit)="envio();" #envioForm="ngForm" role="form" id="mi-formulario" name="formulario1" method="POST">
         <div class="example-container">
             <mat-form-field>
-                <input matInput type="text" placeholder="Usuario">
+                <input matInput type="text" name="nombre" #usuario placeholder="Usuario" 
+                [(ngModel)]="enviarDatos.usuario">
             </mat-form-field>
             <br>
             <mat-form-field>
-                <input matInput type="password" placeholder="Contraseña">
+                <input matInput type="password" name="pass" #password placeholder="Contraseña" 
+                [(ngModel)]="enviarDatos.password">
             </mat-form-field>
         </div>
     </form>
@@ -17,6 +19,6 @@
 <div mat-dialog-actions>
     <button mat-button type="button" (click)="clickSalir();"><i class="material-icons">
     arrow_back</i>Atrás</button>
-    <button mat-button type="submit" routerLink='/home'><i class="material-icons">
-    add_circle</i>Ingresar</button>
+    <button mat-button type="submit" (click)="envio()"><i class="material-icons">
+    send</i>Ingresar</button>
 </div>

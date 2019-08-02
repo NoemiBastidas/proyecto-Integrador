@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ServicioService } from '../servicio.service';
-import { Login } from '../modelos/login.model'
+import { Login, LoginGet } from '../modelos/login.model'
 
 @Component({
   selector: 'app-registro',
@@ -14,15 +14,23 @@ export class RegistroComponent implements OnInit {
 
   login = new Login();
   objLogin : Login;
+  //editable
+  resultado : Array<LoginGet>;
 
   ngOnInit() {
   }
 
-  agregarUsuario(){
+  registro(){
+    this.agregarUsuario(this.login);
+  }
+
+  agregarUsuario(body : Login){
     alert("te haz registrado con exito");
-    this.servicioService.insertUsuario(this.login).subscribe(data => {
+    this.servicioService.insertUsuario(body).subscribe(data => {
       // console.log(data);
-      this.objLogin = data;
+      // this.objLogin = data;
+      this.resultado = [];
+      this.resultado.push(data);
     },
     error =>{
       console.log(error)

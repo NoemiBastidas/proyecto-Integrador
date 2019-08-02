@@ -1,7 +1,7 @@
 <div class="container">
     <img src="../../assets/img/Pasteleria SF.png" alt="imagen1" class="avatar">
     <h1>REGISTRO</h1>
-    <form #envioForm="ngForm" role="form" (ngSubmit)="agregarUsuario(Login)">
+    <form #envioForm="ngForm" role="form" (ngSubmit)="registro();">
         <div class="form-group">
             <label for="exampleInputEmail1">Usuario</label>
             <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" 
@@ -13,7 +13,7 @@
             <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Contraseña"
             [(ngModel)]="login.password" name="input2" #pass>
         </div>
-        <button type="submit" class="btn btn-primary" (click)="agregarUsuario();">Registrarse</button>
+        <button type="submit" class="btn btn-primary">Registrarse</button>
         <button type="submit" class="btn btn-primary" (click)="salir();">Salir</button>
     </form>
 </div>
