@@ -31,11 +31,11 @@ export class ServicioService {
     return this.http.get<PastelesGet[]>('http://localhost:3000/getPasteles');
   }
 
-  //BORRAR PEDIDO OJO
-  deletePedido(id : Pedidos | number){
-    console.log(id);
-    return this.http.delete(`http://localhost:3000/eliminar/${id}`);
-  }
+  // BORRAR PEDIDO OJO
+  // deletePedido(id : Pedidos | number){
+  //   console.log(id);
+  //   return this.http.delete(`http://localhost:3000/eliminar/${id}`);
+  // }
 
   //INSERTAR PRODUCTOS
   insertProductos(pasteles : Pasteles): Observable<PastelesGet> {

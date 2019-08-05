@@ -24,11 +24,11 @@ export class SesionDialogComponent implements OnInit {
 
   ngOnInit() {
     // this.agregarProducto(Pasteles);
-    this.crearFormulario();
+    this.crearFormularioProducto();
   }
 
-  crearFormulario(){
-    this.formProducto = this.fb.group({
+  crearFormularioProducto(){
+    this.formProducto = this.fb.group ({
       nombre: ['', [Validators.minLength(5), Validators.maxLength(20), Validators.required]],
       descripcion: ['', [Validators.minLength(10), Validators.maxLength(40), Validators.required]],
       precio: ['', [Validators.required]],
@@ -42,13 +42,9 @@ export class SesionDialogComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  // onSubmit(){
-  //   this.agregarProducto(this.enviarDatos);
-  // }
-
   //AGREGAR PRODUCTO
   agregarProducto(){
-    alert(this.pasteles);
+    alert("Producto agregado correctamente");
     this.servicioService.insertProductos(this.pasteles).subscribe(data => {
       // console.log(data);
       this.objPasteles = data;
@@ -58,10 +54,10 @@ export class SesionDialogComponent implements OnInit {
     });
   }
 
-  // get nombre(){ return this.formProducto.get('nombre')};
-  // get descripcion(){ return this.formProducto.get('descripcion')};
-  // get precio(){ return this.formProducto.get('precio')};
-  // get imagen(){ return this.formProducto.get('imagen')};
-  // get sabor(){ return this.formProducto.get('sabor')};
+  get nombre(){ return this.formProducto.get('nombre')};
+  get descripcion(){ return this.formProducto.get('descripcion')};
+  get precio(){ return this.formProducto.get('precio')};
+  get imagen(){ return this.formProducto.get('imagen')};
+  get sabor(){ return this.formProducto.get('sabor')};
 
 }

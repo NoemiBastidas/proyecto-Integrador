@@ -24,7 +24,9 @@ export class MainNavbarComponent {
     private dialogo: MatDialog) {}
 
   abrirModal():void{
-    const dialogRef = this.dialogo.open(SesionDialogComponent, {});
+    const dialogRef = this.dialogo.open(SesionDialogComponent, {
+      width: '20%',
+    });
     dialogRef.afterClosed().subscribe(res => {
       console.log(res);
     });

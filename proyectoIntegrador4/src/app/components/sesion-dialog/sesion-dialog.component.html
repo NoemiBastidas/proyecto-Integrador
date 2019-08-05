@@ -4,10 +4,18 @@
 <div mat-dialog-content>
   <form #envioForm="ngForm" role="form" (ngSubmit)="agregarProducto(Pasteles)">
     <div class="container">
-        <mat-form-field>
+        <mat-form-field [formGroup]="formProducto">
             <input matInput type="text" placeholder="Nombre del Pastel"
-            [(ngModel)]="pasteles.nombre" name="input1" #nombre>
+            [(ngModel)]="pasteles.nombre" name="input1" #nombre formControlName="nombre">
         </mat-form-field>
+        <!-- <div class="alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+            <div class="container-error" *ngIf="nombre.errors.required">
+                <small>Este campo es requerido</small> 
+            </div>
+            <div class="container-error" *ngIf="nombre.errors.minlength || nombre.errors.maxlength">
+                <small>Este campo debe tener minimo 5 y maximo 20 digitos</small>
+            </div>
+        </div> -->
         <br>
         <mat-form-field>
             <textarea matInput type="text" placeholder="Descripción"
@@ -30,6 +38,7 @@
         </mat-form-field> 
     </div>
   </form>
+</div>
 <div mat-dialog-actions>
   <button mat-button type="button" (click)="clickSalir();"><i class="material-icons">
     arrow_back</i>Atrás</button>

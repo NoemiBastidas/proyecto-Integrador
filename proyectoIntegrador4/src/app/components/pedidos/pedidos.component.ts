@@ -30,15 +30,15 @@ export class PedidosComponent implements OnInit {
   }
 
   //BORRAR PEDIDO
-  borrarPedido(){
-    this.servicioService.deletePedido(this.pedido.id).subscribe(data => {
-      this.obtenerPedidos();
-      console.log(data);
-      console.log('se ha borrado correctamente');
-    },
-    error => {
-      console.log(JSON.stringify(error));
-    })
-  }
+  // borrarPedido(){
+  //   this.servicioService.deletePedido(this.pedido.id).subscribe(data => {
+  //     this.obtenerPedidos();
+  //     console.log(data);
+  //     console.log('se ha borrado correctamente');
+  //   },
+  //   error => {
+  //     console.log(JSON.stringify(error));
+  //   })
+  // }
 
 }
