@@ -1,5 +1,5 @@
 var express = require('express');
-//let bcrypt = require('bcrypt');
+let bcrypt = require('bcrypt');
 var bodyParser = require('body-parser');
 var port = 3000;
 var knex = require('./db/knex');
