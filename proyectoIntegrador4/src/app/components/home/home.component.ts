@@ -21,31 +21,31 @@ export class HomeComponent implements OnInit {
     );
 
   pastel = new PastelesGet();
-  pasteles : Array<PastelesGet>;
+  pasteles: Array<PastelesGet>;
 
-  constructor( private servicioService : ServicioService, 
+  constructor(private servicioService: ServicioService,
     private breakpointObserver: BreakpointObserver,
-    private dialogo: MatDialog ) { }
+    private dialogo: MatDialog) { }
 
-  abrirModal():void{
-      const dialogRef = this.dialogo.open(ModalPedidoComponent, {});
-      dialogRef.afterClosed().subscribe(res => {
+  abrirModal(): void {
+    const dialogRef = this.dialogo.open(ModalPedidoComponent, {});
+    dialogRef.afterClosed().subscribe(res => {
       console.log(res);
     });
-  }  
+  }
 
   ngOnInit() {
     this.obtenerPas();
   }
 
-  obtenerPas(){
+  obtenerPas() {
     this.servicioService.getPasteles().subscribe(data => {
       this.pasteles = data;
       console.log(data);
     },
-    error =>{
-      console.log(JSON.stringify(error));
-    });
+      error => {
+        console.log(JSON.stringify(error));
+      });
   }
 
 }

@@ -5,6 +5,7 @@ import { Pedidos } from './modelos/pedidos.model';
 import { Pasteles, PastelesGet } from './modelos/productos.model'
 import { Login , LoginGet } from './modelos/login.model'
 import { AdministracionGet, Administracion } from './modelos/admin.model';
+import { Images } from './modelos/image.model';
 
 const httpOptions = {
   headers: new HttpHeaders().set('Content-Type','application/x-www-form-urlencoded')
@@ -43,6 +44,12 @@ export class ServicioService {
     return this.http.post<PastelesGet>('http://localhost:3000/agregarProducto', pasteles);
   }
 
+  //INSERTAR IMAGEN
+  insertarImagen(imagen: Images): Observable<Images> {
+    console.log(imagen);
+    return this.http.post<Images>('http://localhost:3000/agregarImagen', imagen);
+  }
+
   //INSERT PEDIDO
   insertPedido(ped : Pedidos): Observable<Pedidos>{
     console.log(ped);
@@ -54,6 +61,7 @@ export class ServicioService {
     console.log(user);
     return this.http.post<LoginGet>('http://localhost:3000/agregarUsuario', user);
   }
+
 
   //INSERTAR ADMINISTRADOR
   insertAdmin(admin : Administracion): Observable<AdministracionGet> {

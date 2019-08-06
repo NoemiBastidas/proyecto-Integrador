@@ -1,49 +1,48 @@
 <div class="container">
-    <h1 mat-dialog-title>Nuevo Producto</h1>    
+    <h1 mat-dialog-title>Nuevo Producto</h1>
 </div>
 <div mat-dialog-content>
-  <form #envioForm="ngForm" role="form" (ngSubmit)="agregarProducto(Pasteles)">
-    <div class="container">
-        <mat-form-field [formGroup]="formProducto">
-            <input matInput type="text" placeholder="Nombre del Pastel"
-            [(ngModel)]="pasteles.nombre" name="input1" #nombre formControlName="nombre">
-        </mat-form-field>
-        <!-- <div class="alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
+    <form #envioForm="ngForm" role="form" (ngSubmit)="agregarProducto(Pasteles)">
+        <div class="container">
+            <label for="formGroupExampleInput">
+          <h5> Subir Imagen:</h5>
+        </label> <br />
+            <img (click)="fileInput.click()" width="140" height="160" class="card-img fotoPerfilPortada rounded-circle" src="{{srcFoto}}" /> <br> <br>
+            <input hidden=true type="file" style="display: none;" #fileInput (change)="CodificarArchivo($event)" accept="image/*">
+
+            <mat-form-field [formGroup]="formProducto">
+                <input matInput type="text" placeholder="Nombre del Pastel" [(ngModel)]="pasteles.nombre" name="input1" #nombre formControlName="nombre">
+            </mat-form-field>
+            <!-- <div class="alert-danger" *ngIf="nombre.invalid && (nombre.dirty || nombre.touched)">
             <div class="container-error" *ngIf="nombre.errors.required">
-                <small>Este campo es requerido</small> 
+                <small>Este campo es requerido</small>
             </div>
             <div class="container-error" *ngIf="nombre.errors.minlength || nombre.errors.maxlength">
                 <small>Este campo debe tener minimo 5 y maximo 20 digitos</small>
             </div>
         </div> -->
-        <br>
-        <mat-form-field>
-            <textarea matInput type="text" placeholder="Descripción"
-            [(ngModel)]="pasteles.descripcion" name="text1" #descripcion></textarea>
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-            <input matInput type="text" placeholder="Precio"
-            [(ngModel)]="pasteles.precio" name="input2" #precio>
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-            <input matInput type="text" placeholder="Imagen"
-            [(ngModel)]="pasteles.imagen" name="input3" #imagen>
-        </mat-form-field>
-        <br>
-        <mat-form-field>
-            <input matInput type="text" placeholder="Sabor"
-            [(ngModel)]="pasteles.sabor" name="input4" #sabor>
-        </mat-form-field> 
-    </div>
-  </form>
+            <br>
+            <mat-form-field>
+                <textarea matInput type="text" placeholder="Descripción" [(ngModel)]="pasteles.descripcion" name="text1" #descripcion></textarea>
+            </mat-form-field>
+            <br>
+            <mat-form-field>
+                <input matInput type="text" placeholder="Precio" [(ngModel)]="pasteles.precio" name="input2" #precio>
+            </mat-form-field>
+            <br>
+
+            <br>
+            <mat-form-field>
+                <input matInput type="text" placeholder="Sabor" [(ngModel)]="pasteles.sabor" name="input4" #sabor>
+            </mat-form-field>
+        </div>
+    </form>
 </div>
 <div mat-dialog-actions>
-  <button mat-button type="button" (click)="clickSalir();"><i class="material-icons">
-    arrow_back</i>Atrás</button>
-  <button mat-button type="submit" (click)="agregarProducto();"><i class="material-icons">
-    add_circle</i>Añadir</button>
+    <button mat-button type="button" (click)="clickSalir();"><i class="material-icons">
+      arrow_back</i>Atrás</button>
+    <button mat-button type="submit" (click)="agregarProducto();"><i class="material-icons">
+      add_circle</i>Añadir</button>
 </div>
 
 <!-- [formGroup]='formProducto' -->
