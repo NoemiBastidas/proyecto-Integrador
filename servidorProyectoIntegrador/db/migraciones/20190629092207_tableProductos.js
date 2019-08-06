@@ -5,8 +5,7 @@ exports.up = function(knex, Promise) {
         prod.string('descripcion').notNullable();
         prod.double('precio').notNullable();
         prod.string('sabor').notNullable();
-        prod.integer('imagen').notNullable();
-        prod.foreign('imagen').references('id').inTable('imagen');
+        prod.integer('imagen').notNullable().references('id').inTable('imagen').onDelete('cascade');;
     })
 };
 
